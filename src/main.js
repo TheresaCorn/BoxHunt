@@ -19,6 +19,12 @@ const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 sphere.position.x = 3;
 scene.add(sphere);
 
+const boxGeometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
+const boxMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+const box = new THREE.Mesh(boxGeometry, boxMaterial);
+box.position.x = -3;
+scene.add(box);
+
 camera.position.z = 5;
 
 function animate() {
@@ -29,6 +35,9 @@ function animate() {
     
     sphere.rotation.x += 0.02;
     sphere.rotation.y += 0.02;
+    
+    box.rotation.x += 0.015;
+    box.rotation.y += 0.015;
     
     renderer.render(scene, camera);
 }
