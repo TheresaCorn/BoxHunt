@@ -25,6 +25,29 @@ const box = new THREE.Mesh(boxGeometry, boxMaterial);
 box.position.x = -3;
 scene.add(box);
 
+// 创建粒子系统
+const particleCount = 1000;
+const particleGeometry = new THREE.BufferGeometry();
+const particlePositions = new Float32Array(particleCount * 3);
+
+for (let i = 0; i < particleCount * 3; i += 3) {
+    particlePositions[i] = (Math.random() - 0.5) * 20;     // x
+    particlePositions[i + 1] = (Math.random() - 0.5) * 20; // y
+    particlePositions[i + 2] = (Math.random() - 0.5) * 20; // z
+}
+
+particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+
+const particleMaterial = new THREE.PointsMaterial({
+    color: 0xffffff,
+    size: 0.05,
+    transparent: true,
+    opacity: 0.8
+});
+
+const particles = new THREE.Points(particleGeometry, particleMaterial);
+scene.add(particles);
+
 camera.position.z = 5;
 
 function animate() {
@@ -38,6 +61,10 @@ function animate() {
     
     box.rotation.x += 0.015;
     box.rotation.y += 0.015;
+    
+    // 粒子动画
+    particles.rotation.x += 0.001;
+    particles.rotation.y += 0.002;
     
     renderer.render(scene, camera);
 }
