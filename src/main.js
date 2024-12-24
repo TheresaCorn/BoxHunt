@@ -48,10 +48,41 @@ const particleMaterial = new THREE.PointsMaterial({
 const particles = new THREE.Points(particleGeometry, particleMaterial);
 scene.add(particles);
 
+// 创建玩家
+const playerGeometry = new THREE.ConeGeometry(0.3, 1, 8);
+const playerMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+const player = new THREE.Mesh(playerGeometry, playerMaterial);
+player.position.set(0, -2, 0);
+scene.add(player);
+
 camera.position.z = 5;
+
+// 键盘输入处理
+const keys = {};
+window.addEventListener('keydown', (event) => {
+    keys[event.code] = true;
+});
+window.addEventListener('keyup', (event) => {
+    keys[event.code] = false;
+});
 
 function animate() {
     requestAnimationFrame(animate);
+    
+    // 玩家移动逻辑
+    const moveSpeed = 0.1;
+    if (keys['KeyW'] || keys['ArrowUp']) {
+        player.position.y += moveSpeed;
+    }
+    if (keys['KeyS'] || keys['ArrowDown']) {
+        player.position.y -= moveSpeed;
+    }
+    if (keys['KeyA'] || keys['ArrowLeft']) {
+        player.position.x -= moveSpeed;
+    }
+    if (keys['KeyD'] || keys['ArrowRight']) {
+        player.position.x += moveSpeed;
+    }
     
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
@@ -65,6 +96,11 @@ function animate() {
     // 粒子动画
     particles.rotation.x += 0.001;
     particles.rotation.y += 0.002;
+    
+    // 相机跟随玩家
+    camera.position.x = player.position.x;
+    camera.position.y = player.position.y + 2;
+    camera.lookAt(player.position);
     
     renderer.render(scene, camera);
 }
