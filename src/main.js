@@ -57,6 +57,15 @@ scene.add(player);
 
 camera.position.z = 5;
 
+// 玩家颜色切换
+const playerColors = [0xffff00, 0xff0080, 0x80ff00, 0x00ffff, 0xff8000, 0x8000ff];
+let currentColorIndex = 0;
+
+function changePlayerColor() {
+    currentColorIndex = (currentColorIndex + 1) % playerColors.length;
+    playerMaterial.color.setHex(playerColors[currentColorIndex]);
+}
+
 // 键盘输入处理
 const keys = {};
 window.addEventListener('keydown', (event) => {
@@ -112,5 +121,8 @@ function onWindowResize() {
 }
 
 window.addEventListener('resize', onWindowResize);
+
+// 按钮点击事件
+document.getElementById('colorButton').addEventListener('click', changePlayerColor);
 
 animate();
