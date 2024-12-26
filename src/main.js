@@ -45,9 +45,9 @@ const particleGeometry = new THREE.BufferGeometry();
 const particlePositions = new Float32Array(particleCount * 3);
 
 for (let i = 0; i < particleCount * 3; i += 3) {
-    particlePositions[i] = (Math.random() - 0.5) * 20;     // x
-    particlePositions[i + 1] = (Math.random() - 0.5) * 20; // y
-    particlePositions[i + 2] = (Math.random() - 0.5) * 20; // z
+    particlePositions[i] = (Math.random() - 0.5) * 10;     // x
+    particlePositions[i + 1] = (Math.random() - 0.5) * 10; // y
+    particlePositions[i + 2] = (Math.random() - 0.5) * 10; // z
 }
 
 particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
