@@ -19,42 +19,19 @@ const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 sphere.position.x = 3;
 scene.add(sphere);
 
-const boxGeometry = new THREE.BoxGeometry(0.6, 0.6, 0.6);
-const boxMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
-const box = new THREE.Mesh(boxGeometry, boxMaterial);
-box.position.x = -3;
-scene.add(box);
 
 // 添加更多方块
-const box2Geometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
-const box2Material = new THREE.MeshBasicMaterial({ color: 0xff00ff });
-const box2 = new THREE.Mesh(box2Geometry, box2Material);
-box2.position.set(2, 2, 1);
-scene.add(box2);
-
 const box3Geometry = new THREE.BoxGeometry(1.2, 0.4, 0.8);
 const box3Material = new THREE.MeshBasicMaterial({ color: 0x00ffff });
 const box3 = new THREE.Mesh(box3Geometry, box3Material);
 box3.position.set(-2, 1, -2);
 scene.add(box3);
 
-const box4Geometry = new THREE.BoxGeometry(0.5, 1.5, 0.5);
-const box4Material = new THREE.MeshBasicMaterial({ color: 0xffa500 });
-const box4 = new THREE.Mesh(box4Geometry, box4Material);
-box4.position.set(4, -1, 2);
-scene.add(box4);
-
 const box5Geometry = new THREE.BoxGeometry(0.9, 0.9, 0.9);
 const box5Material = new THREE.MeshBasicMaterial({ color: 0xa020f0 });
 const box5 = new THREE.Mesh(box5Geometry, box5Material);
 box5.position.set(-4, -2, 1);
 scene.add(box5);
-
-const box6Geometry = new THREE.BoxGeometry(0.7, 0.3, 1.2);
-const box6Material = new THREE.MeshBasicMaterial({ color: 0x32cd32 });
-const box6 = new THREE.Mesh(box6Geometry, box6Material);
-box6.position.set(1, -3, -1);
-scene.add(box6);
 
 const box7Geometry = new THREE.BoxGeometry(1.1, 0.6, 0.6);
 const box7Material = new THREE.MeshBasicMaterial({ color: 0xdc143c });
