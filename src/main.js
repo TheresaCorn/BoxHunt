@@ -113,25 +113,13 @@ function animate() {
     sphere.rotation.x += 0.02;
     sphere.rotation.y += 0.02;
     
-    box.rotation.x += 0.015;
-    box.rotation.y += 0.015;
-    
     // 新方块的旋转动画
-    box2.rotation.x += 0.008;
-    box2.rotation.z += 0.012;
-    
-    box3.rotation.y += 0.01;
+        box3.rotation.y += 0.01;
     box3.rotation.z += 0.005;
-    
-    box4.rotation.x += 0.02;
-    box4.rotation.y += 0.008;
     
     box5.rotation.x += 0.012;
     box5.rotation.y += 0.018;
     box5.rotation.z += 0.006;
-    
-    box6.rotation.y += 0.015;
-    box6.rotation.z += 0.01;
     
     box7.rotation.x += 0.007;
     box7.rotation.y += 0.013;
